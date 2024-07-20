@@ -1,19 +1,27 @@
 import tkinter as tk
+import pyshorteners
 
-root = tk.Tk();
-root.title("Encurtador de Link");
-root.geometry("600x300");
+def encurtar():
+    encurtador = pyshorteners.Shortener();
+    link_encurtado = encurtador.tinyurl.short(link_longo_entrada.get());
+    link_curto_saida.insert(0, link_encurtado);
 
-longurl_label = tk.Label(root, text="Link para ser Encurtado:");
-longurl_entry = tk.Entry(root);
-shorturl_label = tk.Label(root, text="Link Encurtado:");
-shorturl_entry = tk.Entry(root)
-button = tk.Button(root, text="Encurtar");
+janela = tk.Tk();
+janela.title("Encurtador de Link");
+janela.geometry("600x300");
 
-longurl_label.pack();
-longurl_entry.pack();
-shorturl_label.pack();
-shorturl_entry.pack();
-button.pack();
+link_longo = tk.Label(janela, text="Link para Encurtar:");
+link_longo_entrada = tk.Entry(janela);
+link_curto = tk.Label(janela, text="Link Encurtado:");
+link_curto_saida = tk.Entry(janela);
+link_butao = tk.Button(janela, text="Encurtar", command=encurtar);
 
-root.mainloop();
+link_longo.pack();
+link_longo_entrada.pack();
+link_curto.pack();
+link_curto_saida.pack();
+link_butao.pack();
+
+
+janela.mainloop();
+
