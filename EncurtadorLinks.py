@@ -6,6 +6,8 @@ def encurtar():
     link_encurtado = encurtador.tinyurl.short(link_longo_entrada.get());
     link_curto_saida.insert(0, link_encurtado);
 
+print("Teste");
+
 janela = tk.Tk();
 janela.title("Encurtador de Link");
 janela.geometry("600x300");
